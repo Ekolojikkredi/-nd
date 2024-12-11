@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekolojik Kredi Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Sol Menü -->
+        <div class="left-menu">
+            <ul>
+                <li><a href="#" onclick="openPage('ekolojikKredi')">Ekolojik Kredi Nedir?</a></li>
+                <li><a href="#" onclick="openPage('geriDonusum')">Geri Dönüşüm Nedir?</a></li>
+                <li><a href="#" onclick="openPage('hazirlayanlar')">Hazırlayanlar</a></li>
+                <li><a href="#" onclick="openPage('bizeUlassin')">Bize Ulaşın</a></li>
+            </ul>
+        </div>
+
+        <!-- Sağ Menu -->
+        <div class="right-menu">
+            <button onclick="openPage('okulKayit')">Okul Kayıt</button>
+            <button onclick="openPage('ogrenciKayit')">Öğrenci Kayıt</button>
+            <button onclick="openPage('veriGiris')">Veri Girişi</button>
+            <button onclick="openPage('veriGoruntule')">Veri Görüntüle</button>
+        </div>
+
+        <!-- Sayfalar -->
+        <div id="ekolojikKredi" class="form-container hidden-page">
+            <h2>Ekolojik Kredi Nedir?</h2>
+            <p>Ekolojik kredi, geri dönüşüm ve atık yönetimi konusunda farkındalık yaratmak için kullanılan bir sistemdir...</p>
+        </div>
+
+        <div id="geriDonusum" class="form-container hidden-page">
+            <h2>Geri Dönüşüm Nedir?</h2>
+            <p>Geri dönüşüm, kullanılan materyallerin yeniden işlenip kullanılabilir hale getirilmesidir...</p>
+        </div>
+
+        <div id="hazirlayanlar" class="form-container hidden-page">
+            <h2>Hazırlayanlar</h2>
+            <p>Danışman Öğretmen: Osman Onuk</p>
+            <p>Öğrenciler: Muhammedcan Arslanparçası, Bilal Yiğit Tezcan, Yağız Efe Yılmaz</p>
+        </div>
+
+        <div id="bizeUlassin" class="form-container hidden-page">
+            <h2>Bize Ulaşın</h2>
+            <p>İzmir Torbalı Anadolu Lisesi, ekolojikkreditubitak@gmail.com</p>
+        </div>
+
+        <!-- Okul Kaydı -->
+        <div id="okulKayit" class="form-container hidden-page">
+            <h2>Okul Kayıt</h2>
+            <form id="okulKayitForm">
+                <label>Okul Adı:</label><br>
+                <input type="text" id="schoolName" required><br><br>
+
+                <label>Okul Şifresi:</label><br>
+                <input type="password" id="schoolPassword" required><br><br>
+
+                <label>İl:</label><br>
+                <input type="text" id="schoolProvince" required><br><br>
+
+                <label>İlçe:</label><br>
+                <input type="text" id="schoolDistrict" required><br><br>
+
+                <button type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+
+        <!-- Öğrenci Kaydı -->
+        <div id="ogrenciKayit" class="form-container hidden-page">
+            <h2>Öğrenci Kayıt</h2>
+            <form id="ogrenciKayitForm">
+                <label>Ad:</label><br>
+                <input type="text" id="studentName" required><br><br>
+
+                <label>Soyad:</label><br>
+                <input type="text" id="studentSurname" required><br><br>
+
+                <label>E-posta:</label><br>
+                <input type="email" id="studentEmail" required><br><br>
+
+                <label>Okul Numarası:</label><br>
+                <input type="text" id="studentNumber" required><br><br>
+
+                <label>Telefon:</label><br>
+                <input type="tel" id="studentPhone" required><br><br>
+
+                <label>Sınıf:</label><br>
+                <input type="text" id="studentClass" required><br><br>
+
+                <button type="submit">Kayıt Ol</button>
+            </form>
+        </div>
+
+        <!-- Veri Girişi -->
+        <div id="veriGiris" class="form-container hidden-page">
+            <h2>Veri Girişi</h2>
+            <form id="veriGirisForm">
+                <label>Öğrenci Numarası:</label><br>
+                <input type="text" id="studentNumberEntry" required><br><br>
+
+                <label>Atık Türü:</label><br>
+                <select id="wasteType" required>
+                    <option value="Yağ">Yağ</option>
+                    <option value="Tekstil">Tekstil</option>
+                    <option value="Pil">Pil</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Kağıt">Kağıt</option>
+                    <option value="Cam">Cam</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Plastik">Plastik</option>
+                </select><br><br>
+
+                <label>Atık Miktarı (kg):</label><br>
+                <input type="number" id="wasteWeight" required><br><br>
+
+                <label>Giren Kişi:</label><br>
+                <input type="text" id="enteredBy" required><br><br>
+
+                <button type="submit">Veri Gir</button>
+            </form>
+        </div>
+
+        <!-- Veri Görüntüleme -->
+        <div id="veriGoruntule" class="form-container hidden-page">
+            <h2>Veri Görüntüle</h2>
+            <form id="viewDataForm">
+                <label>E-posta:</label><br>
+                <input type="email" id="viewStudentEmail" required><br><br>
+
+                <label>Öğrenci Numarası:</label><br>
+                <input type="text" id="viewStudentNumber" required><br><br>
+
+                <button type="submit">Verileri Görüntüle</button>
+            </form>
+
+            <div id="viewResult"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
