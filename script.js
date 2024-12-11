@@ -1,15 +1,40 @@
 // Sayfa Geçişi (Yeni Sayfa Açma)
 function openPage(pageName) {
-    // Tüm form container'ları gizle
+    // Tüm sayfa container'larını gizle
     let pages = document.querySelectorAll('.form-container');
     pages.forEach(function(page) {
         page.classList.remove('active-page');
+        page.classList.add('hidden-page');
     });
 
-    // Seçilen sayfayı göster
+    // Seçilen sayfayı aktif hale getir
     let selectedPage = document.getElementById(pageName);
-    selectedPage.classList.add('active-page');
+    if (selectedPage) {
+        selectedPage.classList.add('active-page');
+        selectedPage.classList.remove('hidden-page');
+    }
 }
+
+// Okul Kaydını Ekle
+document.getElementById('okulKayitForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let name = document.getElementById('schoolName').value;
+    let password = document.getElementById('schoolPassword').value;
+    let province = document.getElementById('schoolProvince').value;
+    let district = document.getElementById('schoolDistrict').value;
+
+    let schoolData = {
+        name,
+        password,
+        province,
+        district,
+    };
+
+    localStorage.setItem('school', JSON.stringify(schoolData));
+
+    alert('Okul başarıyla kaydedildi!');
+    openPage('ogrenciKayitForm'); // Okul kaydından sonra Öğrenci kaydına geçiş
+});
 
 // Öğrenci Kaydını Ekle
 document.getElementById('ogrenciKayitForm').addEventListener('submit', function(e) {
@@ -33,7 +58,7 @@ document.getElementById('ogrenciKayitForm').addEventListener('submit', function(
     localStorage.setItem(studentNumber, JSON.stringify(studentData));
 
     alert('Öğrenci başarıyla kaydedildi!');
-    openPage('okulKayit'); // Kayıt işlemi sonrası okul kaydına geri dön
+    openPage('veriGirisForm'); // Öğrenci kaydından sonra Veri girişi sayfasına geçiş
 });
 
 // Veri Girişi
@@ -66,7 +91,7 @@ document.getElementById('veriGirisForm').addEventListener('submit', function(e) 
     localStorage.setItem(studentNumberEntry, JSON.stringify(studentData));
 
     alert('Veri başarıyla girildi!');
-    openPage('veriGiris'); // Veri girişi sonrası veri giriş sayfasına geri dön
+    openPage('veriGirisForm'); // Veri girişinden sonra veri girişi sayfasına geri dön
 });
 
 // Veri Görüntüleme
